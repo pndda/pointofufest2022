@@ -1,0 +1,28 @@
+src_base_path: ./
+dest_base_path: ./
+copy:
+  - src: node_modules/venobox/dist/venobox.min.js
+    dest: source/scripts/vendor
+  - src: node_modules/slick-carousel/slick/slick.min.js
+    dest: source/scripts/vendor
+  - src: node_modules/js-cookie/dist/js.cookie.min.js
+    dest: source/scripts/vendor
+  - src: source/fonts/**/*
+    dest: build/fonts
+css:
+  - src: source/scss/**/*.scss
+    dest: build/css
+img:
+  - src: source/images/**/*.{png,jpg,jpeg,gif,svg}
+    dest: build/img
+js:
+  - src: source/scripts/**/*.js
+    dest: build/js
+svg-sprite:
+  - src: source/sprites/**/*.svg
+    name: sprite.svg
+    dest: build/sprite
+browsersync:
+  server: null # Static sites
+  proxy: http://io.test
+  reload: ../../**/*.php

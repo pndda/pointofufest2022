@@ -1,0 +1,80 @@
+// Bootstrap
+// Tweak default variables from Bootstrap
+
+// Font Colors
+$primary: #526de4;
+$secondary: #0c3e79;
+$dark: #231f20;
+$light: #f7f7f7;
+$body-color: #363636;
+
+// Grays
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// Font settings
+$font-family-base: 'Roboto', sans-serif;
+$font-weight-base: 400;
+
+$link-hover-decoration: none;
+
+// Heading settings
+$headings-font-weight: 700;
+$headings-line-height: 1;
+
+$h1-font-size: 65px;
+$h2-font-size: 55px;
+$h3-font-size: 35px;
+$h4-font-size: 28px;
+$h5-font-size: 22px;
+$h6-font-size: 20px;
+
+// Activate RFS font-sizes
+$enable-responsive-font-sizes: true;
+
+// Custom spacers
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: ($spacer * 4.5),
+  7: ($spacer * 6),
+  8: ($spacer * 7.5),
+  9: ($spacer * 9),
+  10: ($spacer * 10.5)
+);
+
+// Form styling
+$input-padding-y: .625rem;
+$input-padding-x: 1rem;
+$input-border-width: 2px;
+$input-border-color: $gray-400;
+$input-placeholder-color: $gray-500;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
+
+// Add encode function for colors in base-64
+// https://gist.github.com/certainlyakey/e9c0d8f5c87ff47e3d5b?permalink_comment_id=3458258#gistcomment-3458258
+@use 'sass:string';
+@use 'sass:color';
+@function encode_color($string) {
+  @if type-of($string) == 'color' and string.index(#{$string}, '#') == 1 {
+    $hex: string.slice(color.ie-hex-str($string), 4);
+    $string: string.unquote('#{$hex}');
+    @return '%23' + $string;
+  }
+  @return $string;
+}

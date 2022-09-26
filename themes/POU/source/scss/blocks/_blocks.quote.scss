@@ -1,0 +1,24 @@
+.b-quote {
+  blockquote {
+    position: relative;
+    quotes: '“' '”' '‘' '’';
+  }
+
+  blockquote::before, blockquote::after {
+    position: absolute;
+    font-size: 5em;
+    line-height: initial;
+  }
+
+  blockquote::before {
+    content: open-quote;
+    right: 100%;
+    bottom: calc(100% - 1em + 1rem);
+  }
+
+  blockquote::after {
+    content: close-quote;
+    left: 100%;
+    top: calc(100% + 1rem);
+  }
+}

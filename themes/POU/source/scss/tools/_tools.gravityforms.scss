@@ -1,0 +1,417 @@
+.gform_wrapper {
+  // Overall styling
+  // ---------------------------------------------------------------------------
+  .ginput_container {
+    .small {
+      width: 25%;
+    }
+
+    .medium {
+      width: 50%;
+    }
+
+    .large {
+      width: 100%;
+    }
+  }
+
+  .gfield {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .gform_footer, .gform_page_footer {
+    margin: 2rem 0 0;
+  }
+
+  input[type='email'],
+  input[type='date'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='month'],
+  input[type='number'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='time'],
+  input[type='week'],
+  input[type='url'],
+  select,
+  textarea {
+    @extend .form-control;
+  }
+
+  .gform_button,
+  .gform_previous_button,
+  .gform_next_button,
+  .button,
+  .gform_drop_area input,
+  .gfield_list_icons button,
+  input[type='file']::file-selector-button {
+    @extend .btn, .btn-primary;
+  }
+
+  // Label
+  .gfield_label, legend.gfield_label {
+    display: block;
+    width: auto;
+    margin: 0 0 .5rem;
+    font-weight: 700;
+    font-size: inherit;
+    float: none;
+  }
+
+  // Description
+  .gfield_description, .ginput_complex label, .screen-reader-text, .gform_fileupload_rules {
+    display: block;
+    color: $input-border-color;
+    @include font-size(14px);
+  }
+
+  // Required styling
+  // ---------------------------------------------------------------------------
+  .gfield_required {
+    display: inline-block;
+    margin-left: .25rem;
+  }
+
+  .gfield_required_text {
+    color: $input-border-color;
+    font-weight: 400;
+    @include font-size(14px);
+  }
+
+  // Error styling
+  // ---------------------------------------------------------------------------
+  .gform_validation_errors {
+    @extend .alert, .alert-danger;
+  }
+
+  .gform_submission_error {
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    margin: 0;
+  }
+
+  .gfield_validation_message {
+    color: $danger;
+  }
+
+  .gfield_error {
+    input, textarea, select[multiple] {
+      @extend .is-invalid;
+    }
+
+    input[type='checkbox'] + label, input[type='radio'] + label {
+      color: $danger !important;
+
+      &::before {
+        border-color: $danger !important;
+      }
+    }
+  }
+
+  // Field specific styling
+  // ---------------------------------------------------------------------------
+
+  // Section break
+  .gsection_title {
+    font-size: $h4-font-size;
+  }
+
+  // Fileupload
+  .gform_fileupload_rules {
+    margin-top: .25rem;
+  }
+
+  // Multi-upload
+  input[type='file'] {
+    color: $input-border-color;
+  }
+
+  input[type='file']::file-selector-button {
+    margin-right: 1rem;
+  }
+
+  .gform_drop_area {
+    width: 300px;
+    border: 2px dashed $input-border-color;
+    color: $input-border-color;
+    margin: 0 0 10px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      padding: 0 20px 0 0;
+    }
+  }
+
+  // Complex field
+  // Address, name, time, ...
+  .ginput_complex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .ginput_full {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .ginput_left, .ginput_right {
+      width: calc(50% - .5rem);
+      margin-bottom: 1rem;
+    }
+
+    .gfield_time_hour, .gfield_time_minute {
+      width: calc((100% / 2) - .5rem - 60.5px);
+    }
+
+    .gf_clear {
+      display: none;
+    }
+  }
+
+  // Complex field
+  // Name specific styling
+  .ginput_container_name {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 1rem;
+
+    .name_prefix {
+      grid-column: span 4;
+      @include media-breakpoint-up(md) {
+        grid-column: span 2;
+      }
+    }
+
+    .name_first, .name_middle, .name_last {
+      grid-column: span 9;
+      @include media-breakpoint-up(md) {
+        grid-row-start: 2;
+        grid-column: span 3;
+      }
+    }
+
+    // If name_prefix is not present, name_first is first-child, but should start on row 1
+    .name_first:first-child, .name_first:first-child + .name_middle, .name_first:first-child + .name_last {
+      @include media-breakpoint-up(md) {
+        grid-row-start: 1;
+      }
+    }
+
+    .name_suffix {
+      grid-column: span 4;
+      @include media-breakpoint-up(md) {
+        grid-row-start: 3;
+        grid-column: span 2;
+      }
+    }
+  }
+
+  // List fields
+  .gfield_list_group {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .gfield_list_group_item {
+    flex: 1 0 auto;
+  }
+
+  .gfield_list_icons {
+    flex: 0 0 auto;
+    margin-left: 1rem;
+  }
+
+  // Checkbox and consent checkbox
+  .gfield_checkbox, .ginput_container_consent {
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    input[type='checkbox'] + label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      color: $body-color;
+
+      &::before, &::after {
+        content: '';
+        transition: .2s ease all;
+      }
+
+      &::before {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        margin-right: .75rem;
+        border-radius: 4px;
+        border: 1px solid $input-border-color;
+        background-color: $input-bg;
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        transform: translateY(-50%);
+      }
+    }
+
+    input[type='checkbox']:checked + label {
+      &::before {
+        border-color: $primary;
+      }
+
+      &::after {
+        background: $primary;
+      }
+    }
+  }
+
+  // Radio button
+  .gfield_radio {
+    input[type='radio'] {
+      display: none;
+    }
+
+    input[type='radio'] + label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      color: $body-color;
+
+      &::before, &::after {
+        content: '';
+        transition: .2s ease all;
+      }
+
+      &::before {
+        flex: 0 0 auto;
+        width: 18px;
+        height: 18px;
+        margin-right: .75rem;
+        border-radius: 100%;
+        border: 1px solid $input-border-color;
+        background-color: $input-bg;
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        transform: translateY(-50%);
+      }
+    }
+
+    input[type='radio']:checked + label {
+      &::before {
+        border-color: $primary;
+      }
+
+      &::after {
+        background: $primary;
+      }
+    }
+  }
+
+  // Custom styling for selects
+  // Use encoding function so we can use the same parameters for colors. See _settings.bootstrap.scss
+  .ginput_container_select, .ginput_address_country, .name_prefix_select, .gfield_time_ampm {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 1rem;
+      top: calc(1rem - 2px);
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#{encode_color($primary)}"><path d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"/></svg>') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    select {
+      padding-right: 2.5rem;
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+  }
+
+  // Custom styling for multi selects
+  .ginput_container_multiselect {
+    option {
+      border-radius: $input-border-radius;
+      padding: $input-padding-y $input-padding-x;
+    }
+  }
+
+  // Pagination styling
+  // ---------------------------------------------------------------------------
+  // Progress Bar
+  .gf_progressbar_wrapper {
+    margin-bottom: 2rem;
+    font-size: $h3-font-size;
+    font-weight: 400;
+  }
+
+  .gf_progressbar {
+    @extend .progress !optional;
+  }
+
+  .gf_progressbar_percentage {
+    @extend .progress-bar !optional;
+  }
+
+  // Steps
+  .gf_page_steps {
+    margin-bottom: 2rem;
+    @extend .nav, .nav-tabs !optional;
+  }
+
+  .gf_step {
+    @extend .nav-item, .nav-link, .disabled !optional;
+  }
+
+  .gf_step_number {
+    @extend .badge !optional;
+    margin-right: .5rem;
+    background-color: $gray-500;
+  }
+
+  .gf_step_active {
+    @extend .nav-item, .nav-link, .disabled, .active !optional;
+  }
+}
+
+// Confirmation styling
+// Needs to be outside of .gform_wrapper
+// ---------------------------------------------------------------------------
+.gform_confirmation_wrapper {
+  @extend .alert, .alert-success;
+}

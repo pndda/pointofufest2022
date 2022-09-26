@@ -1,0 +1,46 @@
+.c-nav-primary, .c-nav-sidebar, .c-nav-legal {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.c-nav-primary {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  a {
+    padding: 10px;
+  }
+}
+
+.c-nav-sidebar {
+  a {
+    display: block;
+    padding: .75rem 1rem;
+    color: inherit;
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: .2s ease all;
+
+    &:hover, &:focus {
+      background-color: rgba($white, .1);
+    }
+  }
+}
+
+.c-nav-legal {
+  li {
+    display: inline-block;
+  }
+}

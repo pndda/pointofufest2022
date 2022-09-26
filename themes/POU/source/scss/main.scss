@@ -1,0 +1,23 @@
+// Settings
+// Override Bootstrap variables, add own settings (fonts, sizes, ...)
+
+@import 'settings/settings.bootstrap';
+@import 'settings/settings.fonts';
+
+// Vendors
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/venobox/dist/venobox';
+@import '../../node_modules/slick-carousel/slick/slick';
+
+// Elements
+@import 'elements/elements.page';
+
+// Tools
+@import 'tools/tools.gravityforms';
+@import 'tools/tools.ui-datepicker';
+
+// Components
+@import 'components';
+
+// Blocks
+@import 'blocks';

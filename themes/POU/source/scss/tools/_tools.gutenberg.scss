@@ -1,0 +1,45 @@
+.wp-block {
+  position: relative;
+  max-width: 90%;
+  font-family: $font-family-base;
+  margin-top: 6rem;
+
+  &::before {
+    content: attr(data-title);
+    position: absolute;
+    right: 0;
+    top: -2.5rem;
+    @include rfs(20);
+  }
+
+  &.editor-post-title {
+    border: 1px solid $gray-200;
+    padding: 0 2rem;
+  }
+}
+
+.acf-block-preview {
+  position: relative;
+  border: 1px solid $gray-200;
+
+  a {
+    text-decoration: none !important;
+  }
+}
+
+// Sidebar
+.components-panel__body-title,
+.postbox-header {
+  background: $gray-100;
+}
+
+.edit-post-layout__metaboxes {
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2rem;
+}
+
+// Add blocks
+.block-editor-button-block-appender {
+  margin: 1rem auto;
+}

@@ -1,0 +1,119 @@
+$ui-btn-size: 40px;
+
+.ui-datepicker {
+  padding: 1rem;
+  background-color: $white;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.ui-datepicker-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ui-datepicker-prev, .ui-datepicker-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $ui-btn-size;
+  height: $ui-btn-size;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius;
+  transition: .2s ease all;
+
+  span {
+    display: none;
+  }
+}
+
+.ui-datepicker-prev {
+  order: 1;
+  margin-right: .5rem;
+
+  &::before {
+    content: '';
+    flex: 0 0 auto;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{encode_color($body-color)}"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>') no-repeat center center;
+    background-size: contain;
+  }
+}
+
+.ui-datepicker-next {
+  order: 3;
+  margin-left: .5rem;
+
+  &::after {
+    content: '';
+    flex: 0 0 auto;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{encode_color($body-color)}"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>') no-repeat center center;
+    background-size: contain;
+  }
+}
+
+.ui-datepicker-title {
+  display: flex;
+  justify-content: center;
+  flex: 1 0 auto;
+  order: 2;
+}
+
+.ui-datepicker-title select {
+  height: $ui-btn-size;
+  padding: 0;
+  border: 0;
+  font-weight: 700;
+  text-align: center;
+  appearance: none;
+}
+
+.ui-datepicker-month {
+  margin-right: .5rem;
+}
+
+.ui-datepicker-calendar {
+  width: 100%;
+
+  th span {
+    display: block;
+    width: $ui-btn-size;
+    color: $input-border-color;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.ui-state-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $ui-btn-size;
+  height: $ui-btn-size;
+  color: $body-color;
+  border-radius: $input-border-radius;
+  text-decoration: none;
+  transition: .2s ease all;
+
+  .ui-datepicker-unselectable & {
+    color: $input-border-color;
+    border-color: transparent;
+  }
+
+  .ui-datepicker-today & {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.ui-state-hover {
+  background-color: $gray-200;
+  color: inherit !important;
+}

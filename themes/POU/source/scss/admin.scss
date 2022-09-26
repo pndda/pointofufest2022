@@ -1,0 +1,5 @@
+// Remove SEO Workouts (from Yoast SEO)
+// Will only be hidden on iO User accounts
+#toplevel_page_wpseo_workouts {
+  display: none !important;
+}

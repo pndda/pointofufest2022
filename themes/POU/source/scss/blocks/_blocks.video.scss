@@ -1,0 +1,22 @@
+.b-video__play {
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: .5;
+    transition: .2s ease all;
+  }
+
+  &:hover, &:focus {
+    svg {
+      opacity: 1;
+    }
+  }
+}

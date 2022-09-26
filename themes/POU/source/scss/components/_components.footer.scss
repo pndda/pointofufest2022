@@ -1,0 +1,13 @@
+/*
+ * Components: Footer
+ * Styling footer
+ */
+
+.c-footer {
+  position: relative;
+  transition: transform .3s ease-in-out;
+
+  .is-open-sidebar & {
+    transform: translateX(-250px);
+  }
+}

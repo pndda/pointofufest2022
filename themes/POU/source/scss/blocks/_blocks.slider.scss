@@ -1,0 +1,36 @@
+.b-slider__slider-wrapper {
+  position: relative;
+}
+
+.b-slider__button {
+  position: absolute;
+  top: 50%;
+  padding: .5rem;
+  background: $primary;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  z-index: 10;
+  opacity: .5;
+  transition: .2s ease opacity;
+
+  svg {
+    color: $white;
+    width: 30px;
+    height: 30px;
+  }
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.b-slider__button--prev {
+  left: 0;
+  transform: translateY(-50%) scale(-1);
+}
+
+.b-slider__button--next {
+  right: 0;
+  transform: translateY(-50%);
+}
